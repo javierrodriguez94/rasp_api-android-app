@@ -1,0 +1,10 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Ajustes del juego">
+        <EditTextPreference
+            android:defaultValue="192.168.1.1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Rpi Server Address"
+            android:key="server_address" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">rasp_api</string>
+    <string name="preferences">Preferencias</string>
+</resources>
