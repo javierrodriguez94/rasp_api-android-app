@@ -12,4 +12,4 @@ This system is composed by two elements:
 |               |      Mobile App        |       Server        |
 |---------------|------------------------|---------------------|
 |Technology     |     Android native     |      Rails Api      |
-|RepositoryName |[rasp_api-android-app](github.com/javierrodriguez94/rasp_api-android-app) |[rasp_api server](github.com/javierrodriguez94/rasp_api) |
+|RepositoryName |[rasp_api-android-app](https://github.com/javierrodriguez94/rasp_api-android-app) |[rasp_api server](https://github.com/javierrodriguez94/rasp_api) |
