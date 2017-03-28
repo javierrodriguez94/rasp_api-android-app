@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/rasp_api"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -22,7 +22,8 @@
         <activity android:name=".PreferencesActivity" />
         <activity android:name=".TempActivity" />
         <activity android:name=".ImageActivity" />
-        <activity android:name=".LightActivity"></activity>
+        <activity android:name=".LightActivity" />
+        <activity android:name=".VideoActivity"></activity>
     </application>
 
 </manifest>

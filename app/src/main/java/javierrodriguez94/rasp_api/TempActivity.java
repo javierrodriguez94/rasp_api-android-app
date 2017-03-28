@@ -15,6 +15,12 @@ public class TempActivity extends AppCompatActivity {
         temptv = (TextView) findViewById(R.id.temp);
 
         Intent a = getIntent();
-        temptv.setText(a.getStringExtra("temp")+"º");
+        String result = a.getStringExtra("response");
+
+        if ( result.length() > 2 || result.length() <= 0 ) {
+            temptv.setText("Error");
+        }else{
+            temptv.setText(result + "º");
+        }
     }
 }

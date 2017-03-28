@@ -37,7 +37,7 @@ public class PairActivity extends AppCompatActivity {
 
     public void setAddress(String address) {
         SharedPreferences preferences =
-                getSharedPreferences("preferences", this.MODE_PRIVATE);
+                getSharedPreferences("settings", this.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("server_address", address);
         editor.commit();

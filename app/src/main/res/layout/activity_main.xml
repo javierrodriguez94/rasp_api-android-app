@@ -63,7 +63,7 @@
 
     <ImageButton
         android:layout_width="160dp"
-        android:id="@+id/btn2"
+        android:id="@+id/videoBtn"
         android:layout_height="160dp"
         app:srcCompat="@android:drawable/presence_video_online"
         android:scaleType="fitCenter"
@@ -78,7 +78,7 @@
         app:srcCompat="@drawable/bombilla"
         style="@android:style/Widget.ImageButton"
         android:layout_height="160dp"
-        android:layout_alignTop="@+id/btn2"
+        android:layout_alignTop="@+id/videoBtn"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
