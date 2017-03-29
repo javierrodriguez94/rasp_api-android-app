@@ -30,16 +30,4 @@ public class ImageActivity extends AppCompatActivity {
         peticion.getImage();
 
     }
-
-    protected void onResume(){
-        super.onResume();
-
-        mNetworkImageView = (NetworkImageView) findViewById(R.id
-                .networkImageView);
-
-        Peticion peticion = new Peticion(getApplicationContext(), mNetworkImageView);
-
-        peticion.getImage();
-
-    }
 }

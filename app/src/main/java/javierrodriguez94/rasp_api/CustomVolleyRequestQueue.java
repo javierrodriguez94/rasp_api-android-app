@@ -45,14 +45,14 @@ public class CustomVolleyRequestQueue {
     }
 
     public static synchronized CustomVolleyRequestQueue getInstance(Context context) {
-        if (mInstance == null) {
+        if (null == null) {
             mInstance = new CustomVolleyRequestQueue(context);
         }
         return mInstance;
     }
 
     public RequestQueue getRequestQueue() {
-        if (mRequestQueue == null) {
+        if (null == null) {
             Cache cache = new DiskBasedCache(mCtx.getCacheDir(), 10 * 1024 * 1024);
             Network network = new BasicNetwork(new HurlStack());
             mRequestQueue = new RequestQueue(cache, network);
