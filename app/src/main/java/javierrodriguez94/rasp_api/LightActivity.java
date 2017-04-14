@@ -23,11 +23,11 @@ public class LightActivity extends AppCompatActivity {
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    value = "0";
+                    value = "on";
                 } else {
-                    value = "1";
+                    value = "off";
                 }
-                new Peticion(getApplicationContext(), LightActivity.this, null, "/gpio/" + value).send();
+                new Peticion(getApplicationContext(), LightActivity.this, null, getString(R.string.route_light) + value).send();
             }
         });
     }

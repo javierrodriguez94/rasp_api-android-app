@@ -88,7 +88,7 @@ public class Peticion {
         mImageLoader = CustomVolleyRequestQueue.getInstance(context)
                 .getImageLoader();
         //Image URL - This can point to any image file supported by Android
-        final String url = "http://" + getIp() + "/image";
+        final String url = "http://" + getIp() + context.getResources().getString(R.string.route_image);
         mImageLoader.get(url, ImageLoader.getImageListener(mNetworkImageView,
                 R.mipmap.rasp_api, android.R.drawable
                         .ic_dialog_alert));

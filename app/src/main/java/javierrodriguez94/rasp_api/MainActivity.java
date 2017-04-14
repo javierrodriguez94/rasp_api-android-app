@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                new Peticion(getApplicationContext(), MainActivity.this, TempActivity.class, "/get_temp").send();
+                new Peticion(getApplicationContext(), MainActivity.this, TempActivity.class, getString(R.string.route_temp)).send();
             }
         });
 
         b2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //new Peticion(getApplicationContext(), MainActivity.this, ImageActivity.class, "/image").send();
+                //new Peticion(getApplicationContext(), MainActivity.this, ImageActivity.class, getString(R.string.route_image)).send();
                 Intent activityChangeIntent = new Intent( MainActivity.this, ImageActivity.class);
                 //activityChangeIntent.putExtra("response", "");
                 MainActivity.this.startActivity(activityChangeIntent);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         b3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //new Peticion(getApplicationContext(), MainActivity.this, ImageActivity.class, "/image").send();
+                //new Peticion(getApplicationContext(), MainActivity.this, ImageActivity.class, getString(R.string.route_image)).send();
                 Intent activityChangeIntent = new Intent( MainActivity.this, VideoActivity.class);
                 //activityChangeIntent.putExtra("response", "");
                 MainActivity.this.startActivity(activityChangeIntent);

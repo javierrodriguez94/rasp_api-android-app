@@ -3,6 +3,7 @@ package javierrodriguez94.rasp_api;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -37,9 +38,9 @@ public class PairActivity extends AppCompatActivity {
 
     public void setAddress(String address) {
         SharedPreferences preferences =
-                getSharedPreferences("settings", this.MODE_PRIVATE);
+                PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("server_address", address);
+        editor.putString("server_addres", address);
         editor.commit();
     }
 

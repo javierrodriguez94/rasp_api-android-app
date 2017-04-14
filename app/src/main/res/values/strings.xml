@@ -3,4 +3,7 @@
     <string name="preferences">Preferencias</string>
     <string name="capital_on">Apagar</string>
     <string name="capital_off">Encender</string>
+    <string name="route_image">/camera</string>
+    <string name="route_temp">/tasks/temp</string>
+    <string name="route_light">/lights/</string>
 </resources>
