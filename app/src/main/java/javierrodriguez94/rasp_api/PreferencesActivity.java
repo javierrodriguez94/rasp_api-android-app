@@ -1,10 +1,14 @@
 package javierrodriguez94.rasp_api;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
 public class PreferencesActivity extends PreferenceActivity {
 
+    public final static String IP = "server_address";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -12,13 +16,14 @@ public class PreferencesActivity extends PreferenceActivity {
         addPreferencesFromResource(R.xml.settings);
     }
 
-
-
-//    public void setBoardSize(String str, int size) {
-//        SharedPreferences preferences =
-//                PreferenceManager.getDefaultSharedPreferences(this);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.putInt(BOARD_SIZE, size);
-//        editor.commit();
-//    }
+    public static String getIp(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(IP, "0.0.0.0");
+    }
+    public static void setIp(Context context, String ip) {
+        SharedPreferences preferences =
+                PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(IP, ip);
+        editor.commit();
+    }
 }

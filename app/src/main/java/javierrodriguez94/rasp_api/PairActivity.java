@@ -25,7 +25,8 @@ public class PairActivity extends AppCompatActivity {
         pairBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                setAddress(serverAddressField.getText().toString());
+                //setAddress(serverAddressField.getText().toString());
+                PreferencesActivity.setIp(getApplicationContext(), serverAddressField.getText().toString());
                 Intent activityChangeIntent = new Intent(PairActivity.this, MainActivity.class);
 
                 // currentContext.startActivity(activityChangeIntent);

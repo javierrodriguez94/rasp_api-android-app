@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,9 +35,9 @@ public class Peticion {
         this.activity = activity;
         this.destiny = destiny;
         this.context = context;
-        System.out.print(getIp());
+        //System.out.print(getIp());
         queue = Volley.newRequestQueue(activity);
-        url = "http://" + getIp() + peticion;
+        url = "http://" + PreferencesActivity.getIp(context) + peticion;
     }
 
     public Peticion (Context context, NetworkImageView mNetworkImageView){
@@ -76,6 +77,7 @@ public class Peticion {
         };
         request = new StringRequest(Request.Method.GET, url, listener, errorListener);
         queue.add(request);
+        Log.d("DEBUG", url);
     }
 
     public ImageLoader getImage(){
@@ -88,11 +90,12 @@ public class Peticion {
         mImageLoader = CustomVolleyRequestQueue.getInstance(context)
                 .getImageLoader();
         //Image URL - This can point to any image file supported by Android
-        final String url = "http://" + getIp() + context.getResources().getString(R.string.route_image);
+        final String url = "http://" + PreferencesActivity.getIp(context) + context.getResources().getString(R.string.route_image);
         mImageLoader.get(url, ImageLoader.getImageListener(mNetworkImageView,
                 R.mipmap.rasp_api, android.R.drawable
                         .ic_dialog_alert));
         mNetworkImageView.setImageUrl(url, mImageLoader);
+        Log.d("DEBUG", url);
         return mImageLoader;
     }
 

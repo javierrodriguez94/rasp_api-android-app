@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton b2;
     ImageButton b3;
     ImageButton b4;
+    ImageButton b6;
     private RequestQueue queue;
     private StringRequest request;
     private TextView textView;
@@ -55,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
         b1 = (ImageButton) findViewById(R.id.tempBtn);
         b2 = (ImageButton) findViewById(R.id.photoBtn);
-        b3 = (ImageButton) findViewById(R.id.videoBtn);
+        b3 = (ImageButton) findViewById(R.id.humidityBtn);
         b4 = (ImageButton) findViewById(R.id.lightBtn);
+        b6 = (ImageButton) findViewById(R.id.statsBtn);
 
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -75,10 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         b3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //new Peticion(getApplicationContext(), MainActivity.this, ImageActivity.class, getString(R.string.route_image)).send();
-                Intent activityChangeIntent = new Intent( MainActivity.this, VideoActivity.class);
-                //activityChangeIntent.putExtra("response", "");
-                MainActivity.this.startActivity(activityChangeIntent);
+                new Peticion(getApplicationContext(), MainActivity.this, HumidityActivity.class, getString(R.string.route_humidity)).send();
             }
         });
 

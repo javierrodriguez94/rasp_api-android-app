@@ -11,15 +11,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="javierrodriguez94.rasp_api.MainActivity">
 
-    <Button
-        android:text="Acción 3"
+    <ImageButton
         android:layout_width="160dp"
-        android:id="@+id/button3"
+        android:id="@+id/doorBtn"
         android:layout_height="160dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/door"
+        style="@android:style/Widget.ImageButton"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/holo_green_light" />
 
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:id="@+id/imageButton4"
+        app:srcCompat="@drawable/bombilla"
+        style="@android:style/Widget.ImageButton"
+        android:layout_height="160dp"
+        android:layout_alignTop="@+id/humidityBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/holo_orange_light" />
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:id="@+id/imageButton3"
+        app:srcCompat="@drawable/bombilla"
+        style="@android:style/Widget.ImageButton"
+        android:layout_height="160dp"
+        android:layout_alignTop="@+id/humidityBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/holo_orange_light" />
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:id="@+id/imageButton2"
+        app:srcCompat="@drawable/bombilla"
+        style="@android:style/Widget.ImageButton"
+        android:layout_height="160dp"
+        android:layout_alignTop="@+id/humidityBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/holo_orange_light" />
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:id="@+id/imageButton"
+        app:srcCompat="@drawable/bombilla"
+        style="@android:style/Widget.ImageButton"
+        android:layout_height="160dp"
+        android:layout_alignTop="@+id/humidityBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        android:backgroundTint="@android:color/holo_orange_light" />
 
     <ImageButton
         app:srcCompat="@android:drawable/ic_menu_camera"
@@ -31,23 +82,6 @@
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
         android:backgroundTint="@color/colorPrimary" />
-
-    <Button
-        android:text="Acción 3"
-        android:id="@+id/btn3"
-        android:layout_height="160dp"
-        android:layout_width="160dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tv" />
 
     <ImageButton
         android:id="@+id/tempBtn"
@@ -63,9 +97,9 @@
 
     <ImageButton
         android:layout_width="160dp"
-        android:id="@+id/videoBtn"
+        android:id="@+id/humidityBtn"
         android:layout_height="160dp"
-        app:srcCompat="@android:drawable/presence_video_online"
+        app:srcCompat="@drawable/humidity"
         android:scaleType="fitCenter"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:layout_centerVertical="true"
@@ -78,11 +112,24 @@
         app:srcCompat="@drawable/bombilla"
         style="@android:style/Widget.ImageButton"
         android:layout_height="160dp"
-        android:layout_alignTop="@+id/videoBtn"
+        android:layout_alignTop="@+id/humidityBtn"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
-        android:backgroundTint="@android:color/holo_orange_light" />
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:elevation="0dp" />
+
+    <ImageButton
+        android:layout_width="160dp"
+        android:id="@+id/statsBtn"
+        android:layout_height="160dp"
+        app:srcCompat="@drawable/stats"
+        style="@android:style/Widget.ImageButton"
+        android:scaleType="fitXY"
+        android:backgroundTint="@android:color/holo_purple"
+        android:layout_alignTop="@+id/doorBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
