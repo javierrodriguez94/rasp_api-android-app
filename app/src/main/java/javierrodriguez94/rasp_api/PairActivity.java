@@ -27,6 +27,7 @@ public class PairActivity extends AppCompatActivity {
                 // Perform action on click
                 //setAddress(serverAddressField.getText().toString());
                 PreferencesActivity.setIp(getApplicationContext(), serverAddressField.getText().toString());
+                new Peticion(getApplicationContext(), PairActivity.this, MainActivity.class, getString(R.string.route_temp)).send();
                 Intent activityChangeIntent = new Intent(PairActivity.this, MainActivity.class);
 
                 // currentContext.startActivity(activityChangeIntent);

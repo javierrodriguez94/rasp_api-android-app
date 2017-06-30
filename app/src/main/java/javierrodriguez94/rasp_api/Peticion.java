@@ -27,6 +27,9 @@ public class Peticion {
     private Class destiny;
     private Context context;
     private String url;
+    private Response.Listener<String> listener_success;
+    private Response.ErrorListener listener_error;
+    private int method;
     public ImageLoader mImageLoader;
     public NetworkImageView mNetworkImageView;
 
@@ -38,8 +41,43 @@ public class Peticion {
         //System.out.print(getIp());
         queue = Volley.newRequestQueue(activity);
         url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        this.method = Request.Method.GET;
+
+
     }
 
+    public Peticion (Context context, Activity activity, Class destiny, String peticion, String method){
+        this.peticion = peticion;
+        this.activity = activity;
+        this.destiny = destiny;
+        this.context = context;
+        //System.out.print(getIp());
+        queue = Volley.newRequestQueue(activity);
+        url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        switch(method){
+            case "GET":
+                this.method = Request.Method.GET;
+            case "POST":
+                this.method = Request.Method.POST;
+        }
+    }
+
+
+    public Peticion (Context context, Response.Listener<String> listener_success, Response.ErrorListener listener_error, String peticion, String method){
+        this.peticion = peticion;
+        this.listener_success = listener_success;
+        this.listener_error = listener_error;
+        this.context = context;
+        //System.out.print(getIp());
+        queue = Volley.newRequestQueue(activity);
+        url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        switch(method){
+            case "GET":
+                this.method = Request.Method.GET;
+            case "POST":
+                this.method = Request.Method.POST;
+        }
+    }
     public Peticion (Context context, NetworkImageView mNetworkImageView){
 
         this.context = context;
@@ -75,7 +113,12 @@ public class Peticion {
                 }
             }
         };
-        request = new StringRequest(Request.Method.GET, url, listener, errorListener);
+        if (this.listener_success != null){
+            request = new StringRequest(this.method,  url, listener, errorListener);
+        }else {
+            request = new StringRequest(this.method,  url, this.listener_success, this.listener_error);
+        }
+
         queue.add(request);
         Log.d("DEBUG", url);
     }
