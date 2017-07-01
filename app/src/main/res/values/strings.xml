@@ -7,4 +7,7 @@
     <string name="route_light">/lights/</string>
     <string name="route_temp">/sensors/temp</string>
     <string name="route_humidity">/sensors/humidity</string>
+    <string name="route_pair">/users</string>
+    <string name="route_door">/door/</string>
+    <string name="title_activity_door">DoorActivity</string>
 </resources>

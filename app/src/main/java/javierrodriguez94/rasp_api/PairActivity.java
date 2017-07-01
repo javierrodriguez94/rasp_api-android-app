@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
 public class PairActivity extends AppCompatActivity {
 
@@ -18,6 +22,13 @@ public class PairActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pair);
+        String ip = PreferencesActivity.getIp(getApplicationContext());
+        String token = PreferencesActivity.getToken(getApplicationContext());
+        if(ip!=null && token != null){
+            Intent activityChangeIntent = new Intent(PairActivity.this, MainActivity.class);
+            // currentContext.startActivity(activityChangeIntent);
+            PairActivity.this.startActivity(activityChangeIntent);
+        }
 
         pairBtn = (Button) findViewById(R.id.pairBtn);
         serverAddressField = (EditText) findViewById(R.id.serverAddressField);
@@ -27,12 +38,25 @@ public class PairActivity extends AppCompatActivity {
                 // Perform action on click
                 //setAddress(serverAddressField.getText().toString());
                 PreferencesActivity.setIp(getApplicationContext(), serverAddressField.getText().toString());
-                new Peticion(getApplicationContext(), PairActivity.this, MainActivity.class, getString(R.string.route_temp)).send();
-                Intent activityChangeIntent = new Intent(PairActivity.this, MainActivity.class);
+                Response.Listener<String> listener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        PreferencesActivity.setToken(getApplicationContext(), response);
+                        Intent activityChangeIntent = new Intent(PairActivity.this, MainActivity.class);
+                        // currentContext.startActivity(activityChangeIntent);
+                        PairActivity.this.startActivity(activityChangeIntent);
+                    }
+                };
 
-                // currentContext.startActivity(activityChangeIntent);
+                Response.ErrorListener errorListener = new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(PairActivity.this, "Error al obtener token", Toast.LENGTH_SHORT).show();
+                    }
+                };
 
-                PairActivity.this.startActivity(activityChangeIntent);
+                new Peticion(getApplicationContext(), PairActivity.this, listener, errorListener, getString(R.string.route_pair), "POST").send();
+
             }
         });
     }

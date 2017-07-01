@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton b2;
     ImageButton b3;
     ImageButton b4;
+    ImageButton b5;
     ImageButton b6;
     private RequestQueue queue;
     private StringRequest request;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         b2 = (ImageButton) findViewById(R.id.photoBtn);
         b3 = (ImageButton) findViewById(R.id.humidityBtn);
         b4 = (ImageButton) findViewById(R.id.lightBtn);
+        b5 = (ImageButton) findViewById(R.id.doorBtn);
         b6 = (ImageButton) findViewById(R.id.statsBtn);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +86,18 @@ public class MainActivity extends AppCompatActivity {
         b4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent activityChangeIntent = new Intent(MainActivity.this, LightActivity.class);
+                MainActivity.this.startActivity(activityChangeIntent);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent activityChangeIntent = new Intent(MainActivity.this, DoorActivity.class);
+                MainActivity.this.startActivity(activityChangeIntent);
+            }
+        });
+        b6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent activityChangeIntent = new Intent(MainActivity.this, PreferencesActivity.class);
                 MainActivity.this.startActivity(activityChangeIntent);
             }
         });

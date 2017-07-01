@@ -26,6 +26,10 @@
         <activity android:name=".ImageActivity" />
         <activity android:name=".LightActivity" />
         <activity android:name=".VideoActivity" />
+        <activity
+            android:name=".DoorActivity"
+            android:label="@string/title_activity_door"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>

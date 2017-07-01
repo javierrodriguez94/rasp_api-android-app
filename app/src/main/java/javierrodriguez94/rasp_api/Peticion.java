@@ -40,12 +40,11 @@ public class Peticion {
         this.context = context;
         //System.out.print(getIp());
         queue = Volley.newRequestQueue(activity);
-        url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        url = "http://" + PreferencesActivity.getIp(context) + peticion + "?token=" + PreferencesActivity.getToken(context);
         this.method = Request.Method.GET;
 
 
     }
-
     public Peticion (Context context, Activity activity, Class destiny, String peticion, String method){
         this.peticion = peticion;
         this.activity = activity;
@@ -53,7 +52,7 @@ public class Peticion {
         this.context = context;
         //System.out.print(getIp());
         queue = Volley.newRequestQueue(activity);
-        url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        url = "http://" + PreferencesActivity.getIp(context) + peticion + "?token=" + PreferencesActivity.getToken(context);
         switch(method){
             case "GET":
                 this.method = Request.Method.GET;
@@ -61,16 +60,14 @@ public class Peticion {
                 this.method = Request.Method.POST;
         }
     }
-
-
-    public Peticion (Context context, Response.Listener<String> listener_success, Response.ErrorListener listener_error, String peticion, String method){
+    public Peticion (Context context, Activity activity, Response.Listener<String> listener_success, Response.ErrorListener listener_error, String peticion, String method){
         this.peticion = peticion;
         this.listener_success = listener_success;
         this.listener_error = listener_error;
         this.context = context;
         //System.out.print(getIp());
         queue = Volley.newRequestQueue(activity);
-        url = "http://" + PreferencesActivity.getIp(context) + peticion;
+        url = "http://" + PreferencesActivity.getIp(context) + peticion + "?token=" + PreferencesActivity.getToken(context);
         switch(method){
             case "GET":
                 this.method = Request.Method.GET;
@@ -85,9 +82,6 @@ public class Peticion {
     }
 
     public void send(){
-
-
-
         Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -114,9 +108,9 @@ public class Peticion {
             }
         };
         if (this.listener_success != null){
-            request = new StringRequest(this.method,  url, listener, errorListener);
-        }else {
             request = new StringRequest(this.method,  url, this.listener_success, this.listener_error);
+        }else {
+            request = new StringRequest(this.method,  url, listener, errorListener);
         }
 
         queue.add(request);
@@ -133,7 +127,7 @@ public class Peticion {
         mImageLoader = CustomVolleyRequestQueue.getInstance(context)
                 .getImageLoader();
         //Image URL - This can point to any image file supported by Android
-        final String url = "http://" + PreferencesActivity.getIp(context) + context.getResources().getString(R.string.route_image);
+        final String url = "http://" + PreferencesActivity.getIp(context) + context.getResources().getString(R.string.route_image) + "?token=" + PreferencesActivity.getToken(context);
         mImageLoader.get(url, ImageLoader.getImageListener(mNetworkImageView,
                 R.mipmap.rasp_api, android.R.drawable
                         .ic_dialog_alert));
