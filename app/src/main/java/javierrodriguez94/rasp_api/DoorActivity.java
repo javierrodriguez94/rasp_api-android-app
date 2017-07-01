@@ -19,7 +19,7 @@ public class DoorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_door);
 
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButtonDoor);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
